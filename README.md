@@ -3,9 +3,9 @@
 <p align="center">Мод для десктопной Яндекс Музыки под Windows, который добавляет поддержку аддонов.</p>
 
 <p align="center">
-  <a href="https://github.com/YMDMod/YMDMod/releases/latest"><img src="https://img.shields.io/github/v/release/YMDMod/YMDMod?label=версия" alt="Версия"></a>
-  <a href="https://github.com/YMDMod/YMDMod/releases"><img src="https://img.shields.io/github/downloads/YMDMod/YMDMod/total?label=загрузки" alt="Загрузки"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/YMDMod/YMDMod?label=лицензия" alt="Лицензия"></a>
+  <a href="https://github.com/YMDMod/YMDMod/releases/latest"><img src="https://img.shields.io/github/v/release/YMDMod/YMDMod?label=version" alt="Version"></a>
+  <a href="https://github.com/YMDMod/YMDMod/releases"><img src="https://img.shields.io/github/downloads/YMDMod/YMDMod/total?label=downloads" alt="Downloads"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/YMDMod/YMDMod?label=license" alt="License"></a>
 </p>
 
 ---
