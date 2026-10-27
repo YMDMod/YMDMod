@@ -3,9 +3,9 @@
 <p align="center">Мод для десктопной Яндекс Музыки под Windows, который добавляет поддержку аддонов.</p>
 
 <p align="center">
-  <a href="https://github.com/ymdmod/ymdmod/releases/latest"><img src="https://img.shields.io/github/v/release/ymdmod/ymdmod?label=версия" alt="Версия"></a>
-  <a href="https://github.com/ymdmod/ymdmod/releases"><img src="https://img.shields.io/github/downloads/ymdmod/ymdmod/total?label=загрузки" alt="Загрузки"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/ymdmod/ymdmod?label=лицензия" alt="Лицензия"></a>
+  <a href="https://github.com/YMDMod/YMDMod/releases/latest"><img src="https://img.shields.io/github/v/release/YMDMod/YMDMod?label=версия" alt="Версия"></a>
+  <a href="https://github.com/YMDMod/YMDMod/releases"><img src="https://img.shields.io/github/downloads/YMDMod/YMDMod/total?label=загрузки" alt="Загрузки"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/YMDMod/YMDMod?label=лицензия" alt="Лицензия"></a>
 </p>
 
 ---
@@ -28,7 +28,7 @@
 администратора) и выполните:
 
 ```powershell
-iwr https://raw.githubusercontent.com/ymdmod/ymdmod/main/install.ps1 | iex
+iwr https://raw.githubusercontent.com/YMDMod/YMDMod/main/install.ps1 | iex
 ```
 
 Установщик сам закроет клиент, встроит мод и откроет клиент обратно. В меню слева появится пункт «YMDMod» —
@@ -89,15 +89,15 @@ ymdmod status      # посмотреть, что сейчас стоит
 - лог загрузчика, если мод вообще не стартует: `%TEMP%\ymdmod-loader.log`;
 - вывод `ymdmod status`.
 
-С ними можно открывать [issue](https://github.com/ymdmod/ymdmod/issues) — так разобраться в проблеме гораздо
+С ними можно открывать [issue](https://github.com/YMDMod/YMDMod/issues) — так разобраться в проблеме гораздо
 быстрее.
 
 </details>
 
 ### Аддоны
 
-- [Как писать аддоны](https://github.com/ymdmod/addon-template) — шаблон, манифест, API, библиотеки и уведомления
-- [Каталог аддонов](https://github.com/ymdmod/catalog) — как выложить свой аддон
+- [Как писать аддоны](https://github.com/YMDMod/addon-template) — шаблон, манифест, API, библиотеки и уведомления
+- [Каталог аддонов](https://github.com/YMDMod/catalog) — как выложить свой аддон
 
 ### Разработка
 
