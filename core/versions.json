@@ -1,0 +1,39 @@
+{
+  "comment": "Таблица поддержки: версия клиента -> якоря. Версии нет в таблице -> берутся якоря ближайшей младшей версии и проверяются на месте. Якорь не найден -> мод не включается. Установщик берёт те же якоря (если версия старше таблицы — самой новой версии) и отказывает только при ненайденном якоре (packageMain — штатная точка входа в package.json архива).",
+  "versions": {
+    "5.122.0": {
+      "checked": "2026-10-25",
+      "how": "сравнение asar с 5.124.1 (RECON, раздел 7)",
+      "anchors": {
+        "packageMain": "./index.js",
+        "appUrl": "music-application://desktop/",
+        "ipcPlayerState": "desktop:player:state",
+        "ipcPlayerAction": "desktop:player:action",
+        "playerActions": ["PLAY", "PAUSE", "MOVE_BACKWARD", "MOVE_FORWARD"],
+        "dom": {
+          "navbar": "[data-test-id=\"NAVBAR\"]",
+          "navItem": "[data-test-id^=\"NAVBAR_NAVIGATION_ITEM_\"]",
+          "playerBar": "[data-test-id=\"VIBE_PLAYERBAR\"]",
+          "settingsList": "[data-test-id=\"SETTINGS_LIST\"]"
+        }
+      }
+    },
+    "5.124.1": {
+      "checked": "2026-10-25",
+      "how": "запуск копии в lab",
+      "anchors": {
+        "packageMain": "./index.js",
+        "appUrl": "music-application://desktop/",
+        "ipcPlayerState": "desktop:player:state",
+        "ipcPlayerAction": "desktop:player:action",
+        "playerActions": ["PLAY", "PAUSE", "MOVE_BACKWARD", "MOVE_FORWARD"],
+        "dom": {
+          "navbar": "[data-test-id=\"NAVBAR\"]",
+          "navItem": "[data-test-id^=\"NAVBAR_NAVIGATION_ITEM_\"]",
+          "playerBar": "[data-test-id=\"VIBE_PLAYERBAR\"]",
+          "settingsList": "[data-test-id=\"SETTINGS_LIST\"]"
+        }
+      }
+    }
+  }
+}
