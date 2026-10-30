@@ -32,9 +32,9 @@ test('проблемы зависимостей: нет, не та версия,
   assert.equal(dependencyProblem({}, find), null);
 });
 
-test('проверка манифеста: dependencies и type', () => {
-  assert.equal(dependencyManifestError({ id: 'a', type: 'library', dependencies: { b: '>=1.0.0' } }), null);
-  assert.match(dependencyManifestError({ id: 'a', type: 'plugin' }), /type/);
+test('проверка манифеста: dependencies', () => {
+  assert.equal(dependencyManifestError({ id: 'a', dependencies: { b: '>=1.0.0' } }), null);
+  assert.equal(dependencyManifestError({ id: 'a', type: 'plugin' }), null, 'старое поле type больше не проверяется');
   assert.match(dependencyManifestError({ id: 'a', dependencies: ['b'] }), /объектом/);
   assert.match(dependencyManifestError({ id: 'a', dependencies: { 'B!': '*' } }), /неверная запись/);
   assert.match(dependencyManifestError({ id: 'a', dependencies: { a: '*' } }), /самого себя/);

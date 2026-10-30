@@ -2,7 +2,6 @@
 const { matchesCondition } = require('./versions');
 
 const ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,63}$/;
-const TYPES = ['addon', 'library'];
 
 function dependenciesOf(manifest) {
   const deps = manifest && manifest.dependencies;
@@ -14,7 +13,6 @@ function satisfies(version, range) {
 }
 
 function dependencyManifestError(manifest) {
-  if (manifest.type !== undefined && !TYPES.includes(manifest.type)) return `type: только ${TYPES.join(' или ')}`;
   const deps = manifest.dependencies;
   if (deps === undefined) return null;
   if (!deps || typeof deps !== 'object' || Array.isArray(deps)) return 'dependencies должен быть объектом { "id": "версии" }';

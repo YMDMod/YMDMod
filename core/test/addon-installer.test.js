@@ -15,7 +15,7 @@ function setup(version) {
   const repoDir = path.join(root, 'raw', 'owner', 'hello', COMMIT);
   fs.mkdirSync(repoDir, { recursive: true });
   const files = {
-    'manifest.json': JSON.stringify({ id: 'hello', name: 'Hello', version, apiVersion: 1, renderer: 'renderer.js' }),
+    'manifest.json': JSON.stringify({ id: 'hello', name: 'Hello', version }),
     'renderer.js': 'module.exports = {};',
   };
   for (const [name, text] of Object.entries(files)) fs.writeFileSync(path.join(repoDir, name), text);

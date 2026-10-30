@@ -4,7 +4,7 @@ const electron = require('electron');
 const { state, API_VERSION } = require('./state');
 const { log } = require('./storage');
 const { emitFromMain, subscribeMain } = require('./bus');
-const { settingValue, settingValues, setSetting } = require('./settings');
+const { settingValue, settingValues, setSetting, isSystem } = require('./settings');
 const { player, appWindow } = require('./player');
 const { publicAddon } = require('./addon-view');
 const { compatibility } = require('./manifest');
@@ -83,9 +83,8 @@ function useApi(consumer, id, range) {
 function makeMainApi(addon) {
   const guard = makeGuard(addon);
   const subscribe = makeSubscribe(addon, guard);
-  const permissions = addon.manifest.permissions || [];
   return Object.freeze({
-    addons: permissions.includes('addons') ? addonsApi() : undefined,
+    addons: isSystem(addon) ? addonsApi() : undefined,
     id: addon.id,
     apiVersion: API_VERSION,
     modVersion: state.modVersion,

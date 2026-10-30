@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const { BrowserWindow, dialog } = require('electron');
 const { state, SYSTEM_ADDONS } = require('./state');
 const { log, errorText, readJson } = require('./storage');
-const { manifestError, compatibility } = require('./manifest');
+const { manifestError, compatibility, entryPath } = require('./manifest');
 const { rescanAddon } = require('./registry');
 const { dependenciesOf, satisfies } = require('../dependencies');
 
@@ -42,12 +42,10 @@ function describe(token, dir, manifest) {
     id: manifest.id,
     name: manifest.name,
     version: manifest.version,
-    author: manifest.author || '',
     description: manifest.description || '',
-    hasMain: Boolean(manifest.main),
+    hasMain: Boolean(entryPath(dir, 'main')),
     installedVersion: installed ? installed.manifest.version : null,
     warning: compatibility(manifest).warning,
-    type: manifest.type || 'addon',
     dependencies: describeDependencies(manifest),
   };
 }

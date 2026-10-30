@@ -1,6 +1,7 @@
 'use strict';
+const fs = require('fs');
 const path = require('path');
-const { state, SUPPORTED_API_VERSIONS, ID_PATTERN } = require('./state');
+const { state, ID_PATTERN } = require('./state');
 const { readJson } = require('./storage');
 const { matchesAny } = require('../versions');
 const { dependencyManifestError } = require('../dependencies');
@@ -9,9 +10,7 @@ function manifestError(manifest) {
   if (!manifest || typeof manifest !== 'object') return 'manifest.json не читается';
   if (!ID_PATTERN.test(manifest.id || '')) return 'некорректный id';
   if (typeof manifest.name !== 'string' || typeof manifest.version !== 'string') return 'нет name или version';
-  if (!SUPPORTED_API_VERSIONS.includes(manifest.apiVersion)) return `apiVersion ${manifest.apiVersion} не поддерживается ядром`;
   if (manifest.modVersions !== undefined && !Array.isArray(manifest.modVersions)) return 'modVersions должен быть списком';
-  if (manifest.permissions !== undefined && !Array.isArray(manifest.permissions)) return 'permissions должен быть списком';
   return dependencyManifestError(manifest);
 }
 
@@ -22,9 +21,7 @@ function readManifest(dir) {
 }
 
 function compatibility(manifest) {
-  if (!manifest || !SUPPORTED_API_VERSIONS.includes(manifest.apiVersion)) {
-    return { ok: false, reason: `apiVersion ${manifest && manifest.apiVersion} не поддерживается ядром`, warning: '' };
-  }
+  if (!manifest) return { ok: false, reason: 'manifest.json не читается', warning: '' };
   const wanted = manifest.modVersions;
   if (Array.isArray(wanted) && !matchesAny(state.modVersion, wanted)) {
     return { ok: true, reason: '', warning: `Рассчитан на мод ${wanted.join(', ')}, установлен ${state.modVersion}. Может работать неправильно.` };
@@ -32,4 +29,11 @@ function compatibility(manifest) {
   return { ok: true, reason: '', warning: '' };
 }
 
-module.exports = { manifestError, readManifest, compatibility };
+const ENTRY_FILES = { main: 'main.js', renderer: 'renderer.js' };
+
+function entryPath(dir, kind) {
+  const file = path.join(dir, ENTRY_FILES[kind]);
+  return fs.existsSync(file) ? file : null;
+}
+
+module.exports = { manifestError, readManifest, compatibility, entryPath };

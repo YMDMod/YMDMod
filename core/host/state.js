@@ -26,7 +26,6 @@ module.exports = {
   CORE_DIR,
   ROOT,
   API_VERSION: 1,
-  SUPPORTED_API_VERSIONS: [1],
   ID_PATTERN: /^[a-z0-9][a-z0-9-]{0,63}$/,
   SYSTEM_ADDONS: require('../system-addons.json'),
 };

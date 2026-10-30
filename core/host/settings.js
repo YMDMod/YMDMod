@@ -25,7 +25,7 @@ function saveSettings() {
 function isEnabled(addon) {
   if (isSystem(addon)) return true;
   const stored = addonSettings(addon.id).enabled;
-  return typeof stored === 'boolean' ? stored : addon.manifest.defaultEnabled === true;
+  return typeof stored === 'boolean' ? stored : true;
 }
 
 function storeEnabled(id, enabled) {

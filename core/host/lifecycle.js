@@ -7,13 +7,16 @@ const { broadcast, emitFromMain } = require('./bus');
 const { isSystem, isEnabled, storeEnabled } = require('./settings');
 const { publicAddon, dependencyView } = require('./addon-view');
 const { dependencyProblem, orderByDependencies } = require('../dependencies');
+const { entryPath } = require('./manifest');
 
 function activateMain(addon) {
-  if (!addon.manifest.main || addon.main) return;
+  const mainPath = entryPath(addon.dir, 'main');
+  if (!mainPath || addon.main) return;
   try {
     fs.mkdirSync(path.join(state.dataDir, 'addons', addon.id), { recursive: true });
-    const entry = require(path.join(addon.dir, addon.manifest.main));
+    const entry = require(mainPath);
     addon.main = entry;
+    addon.mainPath = mainPath;
     if (typeof entry.activate === 'function') entry.activate(require('./main-api').makeMainApi(addon));
     log('addon main activated', addon.id);
   } catch (error) {
@@ -30,11 +33,9 @@ function runQuietly(addon, what, fn) {
 }
 
 function forgetMainModule(addon) {
-  if (!addon.manifest.main) return;
-  try {
-    delete require.cache[require.resolve(path.join(addon.dir, addon.manifest.main))];
-  } catch {
-  }
+  if (!addon.mainPath) return;
+  delete require.cache[addon.mainPath];
+  addon.mainPath = null;
 }
 
 function deactivateMain(addon) {

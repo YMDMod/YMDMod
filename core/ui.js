@@ -152,13 +152,12 @@
 
   const dependentsOf = (id) => core.addons().filter((a) => a.dependencies && id in a.dependencies).map((a) => a.name);
 
-  const cardShape = (addon) => JSON.stringify([addon.status, addon.error, addon.warning, addon.version, addon.name, addon.description, addon.system, addon.type, dependentsOf(addon.id)]);
+  const cardShape = (addon) => JSON.stringify([addon.status, addon.error, addon.warning, addon.version, addon.name, addon.description, addon.system, dependentsOf(addon.id)]);
 
   const cardHeader = (addon) => {
     const status = STATUS[addon.status] || STATUS.disabled;
     return el('div', { class: 'ymd-row' }, [
       el('div', { class: 'ymd-name' }, [addon.name, el('span', { class: 'ymd-ver', text: addon.version })]),
-      addon.type === 'library' && el('span', { class: 'ymd-chip ymd-off', text: 'Библиотека' }),
       el('span', { class: `ymd-chip ymd-${status.tone}`, text: status.text }),
       addon.system ? systemControl(addon) : enableSwitch(addon),
     ]);
@@ -215,7 +214,7 @@
     : `Нужен аддон «${dep.id}» ${dep.range}: он не установлен, аддон не запустится, пока его не поставить.` });
 
   const pickedSummary = (picked) => el('div', { class: 'ymd-confirm-info' }, [
-    el('div', {}, [el('b', { text: picked.name }), el('span', { class: 'ymd-ver', text: `${picked.version} · ${picked.id}${picked.author ? ` · ${picked.author}` : ''}` })]),
+    el('div', {}, [el('b', { text: picked.name }), el('span', { class: 'ymd-ver', text: `${picked.version} · ${picked.id}` })]),
     picked.description && el('div', { class: 'ymd-desc', text: picked.description }),
     el('div', { class: 'ymd-desc', text: picked.dir }),
   ]);
