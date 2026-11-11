@@ -30,7 +30,6 @@ function Install-ModIntoClient([string]$InstallDir, [string]$ModDir) {
     $result = Invoke-ClientNode $exe.FullName @($patch, 'check', '--dir', $InstallDir)
     $result.Output | ForEach-Object { Write-Host $_ }
     if ($result.Code -ne 0) { return $false }
-    Say 'signature'
     return $true
 }
 

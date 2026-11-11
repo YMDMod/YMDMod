@@ -195,7 +195,7 @@ while ($true) {
     )
     $choice = Read-MenuChoice $items
     if ($choice -eq 'exit') { break }
-    Write-Host ''
+    if ([Console]::IsInputRedirected) { Write-Host '' } else { Clear-Host }
     $ok = Invoke-Action $choice $true
     if (-not $ok) { Write-Host (Text 'actionFailed') -ForegroundColor Red }
     if ($choice -eq 'uninstall' -and -not (Test-Path -LiteralPath $ModDir)) { break }
