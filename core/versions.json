@@ -3,7 +3,6 @@
   "versions": {
     "5.122.0": {
       "checked": "2026-10-25",
-      "how": "сравнение asar с 5.124.1 (RECON, раздел 7)",
       "anchors": {
         "packageMain": "./index.js",
         "appUrl": "music-application://desktop/",
@@ -20,7 +19,6 @@
     },
     "5.124.1": {
       "checked": "2026-10-25",
-      "how": "запуск копии в lab",
       "anchors": {
         "packageMain": "./index.js",
         "appUrl": "music-application://desktop/",
@@ -37,7 +35,6 @@
     },
     "5.125.3": {
       "checked": "2026-10-30",
-      "how": "имитация обновления копии в lab (файлы 5.125.3 поверх 5.124.1 с модом), «Починить», запуск",
       "anchors": {
         "packageMain": "./index.js",
         "appUrl": "music-application://desktop/",
