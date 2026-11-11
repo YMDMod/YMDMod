@@ -28,7 +28,7 @@
 (права администратора не требуются) и выполните команду:
 
 ```powershell
-iwr https://raw.githubusercontent.com/YMDMod/YMDMod/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/YMDMod/YMDMod/main/install.ps1 | iex
 ```
 
 Установщик закроет клиент, встроит мод и запустит клиент снова. После этого в боковом меню появится пункт
