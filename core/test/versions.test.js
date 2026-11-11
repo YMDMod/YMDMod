@@ -32,7 +32,7 @@ test('якоря: неизвестная версия берёт ближайш�
   );
   assert.equal(pickAnchors(table, '5.123.0').tableVersion, '5.122.0');
   assert.equal(pickAnchors(table, '5.125.0').tableVersion, '5.124.1');
-  assert.equal(pickAnchors(table, '5.130.0').tableVersion, '5.125.3');
+  assert.equal(pickAnchors(table, '5.130.0').tableVersion, '5.126.1');
 });
 
 test('якоря: версия старше таблицы или мусор — мод не включается', () => {

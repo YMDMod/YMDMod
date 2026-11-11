@@ -48,6 +48,22 @@
           "settingsList": "[data-test-id=\"SETTINGS_LIST\"]"
         }
       }
+    },
+    "5.126.1": {
+      "checked": "2026-11-10",
+      "anchors": {
+        "packageMain": "./index.js",
+        "appUrl": "music-application://desktop/",
+        "ipcPlayerState": "desktop:player:state",
+        "ipcPlayerAction": "desktop:player:action",
+        "playerActions": ["PLAY", "PAUSE", "MOVE_BACKWARD", "MOVE_FORWARD"],
+        "dom": {
+          "navbar": "[data-test-id=\"NAVBAR\"]",
+          "navItem": "[data-test-id^=\"NAVBAR_NAVIGATION_ITEM_\"]",
+          "playerBar": "[data-test-id=\"VIBE_PLAYERBAR\"]",
+          "settingsList": "[data-test-id=\"SETTINGS_LIST\"]"
+        }
+      }
     }
   }
 }
