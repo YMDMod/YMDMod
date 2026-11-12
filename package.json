@@ -1,6 +1,6 @@
 {
   "name": "ymdmod",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "description": "Сторонний мод для Яндекс Музыки (Windows). Не связан с Яндексом.",
   "license": "MIT",
